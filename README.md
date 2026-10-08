@@ -1,23 +1,38 @@
 # Animated Oxygen White Cursors
 
-Animated Oxygen White Cursors from https://www.rw-designer.com/cursor-set/animated-oxygen-white, released as a linux theme.
+Animated version of the Oxygen White cursors, converted to X11 (Xcursor) for Linux desktops.
+
+Source animations: https://www.rw-designer.com/cursor-set/animated-oxygen-white
 
 ## Installation
 
-Copy the `animated-oxygen-white` directory in `$USER/.local/share/icons`, and select the theme in your preferred desktop environment.
-It depends on the Oxygen White theme.
+Copy the `animated-oxygen-white` directory in `~/.local/share/icons`, then select **Animated Oxygen White** as your cursor theme in your desktop settings.
+
+```bash
+cp -r animated-oxygen-white ~/.local/share/icons/
+```
+
+This theme depends on the `Oxygen_White` theme, which must be installed on your system.
 
 ## Making of
 
-Some pointers were ignored:
-- `Normal Select.ani` : Too distracting for a default cursor
-- `Working in background.ani` : The existing Oygen cursor is already animated, and looks better (in my opinion)
-- `Text Select.ani` : Too big and hides the underlying text
+Some pointers were left out:
+- `Normal Select.ani` : too distracting for a default cursor.
+- `Working in background.ani` : the existing Oygen busy cursor is already animated and looks better.
+- `Text Select.ani` : too big and hides the underlying text.
 
-```cmd
-# Transforme the .ani cursors into X11 cursors
-win2xcur *.ani
+The conversion requires [win2xcur](https://github.com/quantum5/win2xcur)
 
+Then, from the directory containing the `.ani` files:
+
+```bash
+# Convert the .ani cursors to X11 cursors
+mkdir -p cursors
+win2xcur *.ani -o cursors/
+
+cd cursors
+
+# Rename the converted files to their X11 names and create aliases
 mv "Vertical Resize" ns-resize
 for n in size_ver n-resize s-resize sb_v_double_arrow v_double_arrow 00008160000006810000408080010102; do
   ln -sfn ns-resize "$n"
@@ -50,3 +65,11 @@ done
 
 mv Handwriting pencil
 ```
+
+## Credits and Licence
+
+- Animated cursors: Exund. According to the [source page](https://www.rw-designer.com/cursor-set/animated-oxygen-white), the set was released to the public domain.
+- Base cursors (Oxygen-White): Erik, from the [openSUSE Oxygen-White set](https://www.rw-designer.com/cursor-set/opensuse-oxygen), which is derived from the Oxygen cursors of KDE.
+- Oxygen cursors: KDE, https://github.com/KDE/oxygen, licensed under the GNU LGPL v3.
+
+Because this work is derived from the Oxygen cursors, the whole theme is distributed under the GNU Lesser General Public License v3.0. See [LICENSE](LICENSE).
