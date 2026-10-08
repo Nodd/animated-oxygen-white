@@ -1,0 +1,6 @@
+[Icon Theme]
+Name=Oxygen White Animated
+Name[fr]=Oxygen blanc animé
+Comment=Animated Oxygen Cursors from https://www.rw-designer.com/cursor-set/animated-oxygen-white
+Comment[fr]=Curseurs Oxygen animés de https://www.rw-designer.com/cursor-set/animated-oxygen-white
+Inherits=Oxygen_White
